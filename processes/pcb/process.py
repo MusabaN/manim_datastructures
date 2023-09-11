@@ -1,30 +1,20 @@
 from manim import *
 
 
-def create_pcb(color, strings):
-    
+def create_pcb(strings, numbers, scene):
 
-    text_group = VGroup(*[Text(s) for s in strings])
-    text_group.arrange(DOWN, aligned_edge=LEFT)
-    rect = SurroundingRectangle(text_group, buff=0.1)
+    table_list = [[s, str(n)] for s, n in zip(strings, numbers)]
 
-    result = VGroup(text_group, rect)
+    table = Table(table_list)
+    table.set_color(WHITE)
 
-    return result
+    table.scale(0.5)
+    table.to_edge(LEFT)
 
-def create_pcb2(strings, numbers):
-
-    left_column = VGroup(*[Text(s) for s in strings]).arrange(DOWN, aligned_edge=LEFT)
-    right_column = VGroup(*[DecimalNumber(n) for n in numbers]).arrange(DOWN)
-
-    columns = VGroup(left_column, right_column).arrange(RIGHT)
-
-    rect = SurroundingRectangle(columns, buff=0.1)
-
-    result = VGroup(columns, rect)
+    scene.play(table.create())
 
 
-    return result
+    return table
 
 
 
@@ -35,7 +25,10 @@ class tellMeWhy(Scene):
 
         self.add(hva_er_process)
 
-        pcb_group = create_pcb2(["Instruction pointer:", "Stack pointer:", "Base pointer:"], [0, 1, 2])
+        pcb_group = create_pcb(["Instruction pointer", "Stack pointer", "Base pointer"], [0, 1, 2], self)
+        self.wait(2)
 
-        self.add(pcb_group)
-        self.wait(10)
+        self.play(FadeOut(pcb_group))
+        self.remove(pcb_group)
+        self.wait(3)
+
