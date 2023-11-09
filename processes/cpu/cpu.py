@@ -69,37 +69,52 @@ class m_cpu:
     rectangles and text objects. It is used to represent the cpu in
     the context of a process.
     """
-
-    def update_value(self, scene, value, index):
-        self.table.add_highlighted_cell((index, 0), color=RED).animate()
-        scene.wait(0.5)
+    def update_value(self, scene, index, time):
+        self.table.add_highlighted_cell((index, 0), color=GREEN)
+        self.table[0].set_opacity(0)
+        scene.play(self.table[0].animate.set_opacity(1), run_time=time/4)
+        scene.wait(time/4)
         scene.remove(self.table)
         self.update_table()
-        self.table.add_highlighted_cell((index, 0), color=RED).animate()
+        self.table.add_highlighted_cell((index, 0), color=GREEN)
+        self.table[0].set_opacity(1)
         scene.add(self.table)
-        scene.wait(0.5)
-        self.table.add_highlighted_cell((index, 0), color=BLACK).animate()
-        scene.wait(0.5)
+        scene.wait(time/4)
+        scene.play(self.table[0].animate.set_opacity(0), run_time=time/4)
+
+
+
+
+    def update_value2(self, scene, index, time):
+        self.table.add_highlighted_cell((index, 0), color=RED)
+        scene.wait(time/4)
+        scene.remove(self.table)
+        self.update_table()
+        self.table.add_highlighted_cell((index, 0), color=RED)
+        scene.add(self.table)
+        scene.wait(time/4)
+        self.table.add_highlighted_cell((index, 0), color=BLACK)
+        scene.wait(time/4)
         scene.remove(self.table)
         self.update_table()
         scene.add(self.table)
-        scene.wait(0.2)
+        scene.wait(time/4)
 
-    def update_pc(self, scene, val):
+    def update_pc(self, scene, val, time=3):
         self.num_table[0] = str(val)
-        self.update_value(scene, val, 1)
+        self.update_value(scene, 1, time)
     
-    def update_bp(self, scene, val):
+    def update_bp(self, scene, val, time=3):
         self.num_table[1] = str(val)
-        self.update_value(scene, val, 2)
+        self.update_value(scene, 2, time=3)
     
-    def update_sp(self, scene, val):
+    def update_sp(self, scene, val, time=3):
         self.num_table[2] = str(val)
-        self.update_value(scene, val, 3)
+        self.update_value(scene, 3, time=3)
     
-    def update_acc(self, scene, val):
+    def update_acc(self, scene, val, time=3):
         self.num_table[3] = str(val)
-        self.update_value(scene, val, 4)
+        self.update_value(scene, 4, time)
         
     
 
@@ -111,14 +126,10 @@ class MyScene(Scene):
 
         self.add(cpu1.group)
 
-        self.wait(0.5)
-
         cpu1.update_pc(self, 20)
 
-        cpu1.update_bp(self, 30)
+        # cpu1.update_bp(self, 30, 3)
 
-        cpu1.update_sp(self, 40)
+        # cpu1.update_sp(self, 40, 4)
 
-        cpu1.update_acc(self, 50)
-
-        self.wait(0.5)
+        # cpu1.update_acc(self, 50, 5)
