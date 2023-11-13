@@ -74,31 +74,15 @@ class m_cpu:
         self.table[0].set_opacity(0)
         scene.play(self.table[0].animate.set_opacity(1), run_time=time/4)
         scene.wait(time/4)
+
         scene.remove(self.table)
         self.update_table()
         self.table.add_highlighted_cell((index, 0), color=GREEN)
         self.table[0].set_opacity(1)
+        
         scene.add(self.table)
         scene.wait(time/4)
         scene.play(self.table[0].animate.set_opacity(0), run_time=time/4)
-
-
-
-
-    def update_value2(self, scene, index, time):
-        self.table.add_highlighted_cell((index, 0), color=RED)
-        scene.wait(time/4)
-        scene.remove(self.table)
-        self.update_table()
-        self.table.add_highlighted_cell((index, 0), color=RED)
-        scene.add(self.table)
-        scene.wait(time/4)
-        self.table.add_highlighted_cell((index, 0), color=BLACK)
-        scene.wait(time/4)
-        scene.remove(self.table)
-        self.update_table()
-        scene.add(self.table)
-        scene.wait(time/4)
 
     def update_pc(self, scene, val, time=3):
         self.num_table[0] = str(val)
@@ -110,7 +94,7 @@ class m_cpu:
     
     def update_sp(self, scene, val, time=3):
         self.num_table[2] = str(val)
-        self.update_value(scene, 3, time=3)
+        self.update_value(scene, 3, time)
     
     def update_acc(self, scene, val, time=3):
         self.num_table[3] = str(val)
