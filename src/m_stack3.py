@@ -83,4 +83,4 @@ class theSchene(Scene):
         self.wait()
 
         self.play(s1.pop())
-        self.wait()
+        self.wait(4)
