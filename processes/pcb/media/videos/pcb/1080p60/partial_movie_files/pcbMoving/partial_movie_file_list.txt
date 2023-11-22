@@ -1,9 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:C:/Users/Norstrand/repos/manimasjoner/Processes/PCB/media/videos/pcb/1080p60/partial_movie_files/pcbMoving/1413466013_2526496290_2494011130.mp4'
-file 'file:C:/Users/Norstrand/repos/manimasjoner/Processes/PCB/media/videos/pcb/1080p60/partial_movie_files/pcbMoving/1672018281_1742188417_230770454.mp4'
-file 'file:C:/Users/Norstrand/repos/manimasjoner/Processes/PCB/media/videos/pcb/1080p60/partial_movie_files/pcbMoving/1672018281_2526496290_4203102316.mp4'
-file 'file:C:/Users/Norstrand/repos/manimasjoner/Processes/PCB/media/videos/pcb/1080p60/partial_movie_files/pcbMoving/1672018281_10103420_249463808.mp4'
-file 'file:C:/Users/Norstrand/repos/manimasjoner/Processes/PCB/media/videos/pcb/1080p60/partial_movie_files/pcbMoving/1672018281_2714837291_139354537.mp4'
-file 'file:C:/Users/Norstrand/repos/manimasjoner/Processes/PCB/media/videos/pcb/1080p60/partial_movie_files/pcbMoving/1672018281_1472608945_1085572655.mp4'
-file 'file:C:/Users/Norstrand/repos/manimasjoner/Processes/PCB/media/videos/pcb/1080p60/partial_movie_files/pcbMoving/1672018281_2714837291_2551360174.mp4'
-file 'file:C:/Users/Norstrand/repos/manimasjoner/Processes/PCB/media/videos/pcb/1080p60/partial_movie_files/pcbMoving/1672018281_394087563_3946541808.mp4'

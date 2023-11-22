@@ -1,5 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:/Users/oleskole/repos/manimasjoner/processes/cpu/media/videos/cpu/1080p60/partial_movie_files/MyScene/1413466013_1230084546_4244887198.mp4'
-file 'file:/Users/oleskole/repos/manimasjoner/processes/cpu/media/videos/cpu/1080p60/partial_movie_files/MyScene/1672018281_3108075916_3969781477.mp4'
-file 'file:/Users/oleskole/repos/manimasjoner/processes/cpu/media/videos/cpu/1080p60/partial_movie_files/MyScene/1672018281_3108075916_1817132519.mp4'
-file 'file:/Users/oleskole/repos/manimasjoner/processes/cpu/media/videos/cpu/1080p60/partial_movie_files/MyScene/1672018281_220562662_690089690.mp4'

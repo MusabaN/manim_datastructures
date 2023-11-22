@@ -1,2 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:/home/olen/repos/manimasjoner/Processes/context_switching/media/videos/cs/480p15/partial_movie_files/contextSwitch/4266129954_598626974_223132457.mp4'

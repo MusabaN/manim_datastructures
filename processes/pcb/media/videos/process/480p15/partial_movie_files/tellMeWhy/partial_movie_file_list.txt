@@ -1,5 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:/home/olen/repos/manimasjoner/processes/pcb/media/videos/process/480p15/partial_movie_files/tellMeWhy/4266129954_743755589_171155832.mp4'
-file 'file:/home/olen/repos/manimasjoner/processes/pcb/media/videos/process/480p15/partial_movie_files/tellMeWhy/1442284246_190800790_479552777.mp4'
-file 'file:/home/olen/repos/manimasjoner/processes/pcb/media/videos/process/480p15/partial_movie_files/tellMeWhy/1442284246_1897932396_3589173034.mp4'
-file 'file:/home/olen/repos/manimasjoner/processes/pcb/media/videos/process/480p15/partial_movie_files/tellMeWhy/1442284246_3073779459_3072554143.mp4'
