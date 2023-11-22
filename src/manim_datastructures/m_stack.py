@@ -1,7 +1,7 @@
 from manim import *
 
 class m_stack(VGroup):
-    def __init__(self, table, scale=1, title="Stack", *args, **kwargs):
+    def __init__(self, table=[], scale=1, title="Stack", *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.scale = scale
         self.top_line = Line(LEFT, RIGHT).scale(self.scale)
@@ -13,7 +13,7 @@ class m_stack(VGroup):
 
         self.add(self.title, self.top_line, self.bp, self.sp)
         for i in table:
-            self.add(self.push_inner(i))
+            self.push_inner(i)
         
         if (len(table) > 0):
             self.sp.next_to(self.stack[-1], RIGHT)
@@ -35,6 +35,7 @@ class m_stack(VGroup):
     
     def push_inner(self, value):
         new_elem = self.create_textbox(str(value), 30).next_to(self.prev, DOWN, buff=0)
+        self.add(new_elem)
         self.stack.append(new_elem)
         self.prev = self.stack[-1]
         return new_elem
@@ -42,45 +43,81 @@ class m_stack(VGroup):
     def push(self, value, **kwargs):
         anims = []
         new_elem = self.push_inner(value)
-        anims.append(FadeIn(new_elem))
+        anims.append(FadeIn(new_elem, shift=UP))
         anims.append(self.sp.animate.next_to(new_elem, RIGHT))
         anims.append(Wait())
-        return LaggedStart(*anims, **kwargs)
+        return LaggedStart(*anims, 
+            group=VGroup(new_elem, self.sp),
+            **kwargs)
     
     def pop(self, **kwargs):
         if len(self.stack) == 0:
             return Succession(**kwargs)
         anims = []
-        anims.append(FadeOut(self.stack[-1]))
+        anims.append(FadeOut(self.stack[-1], shift=DOWN))
         anims.append(Wait())
-        self.stack.pop()
+        self.remove(self.stack.pop())
         if len(self.stack) > 0:
             anims.append(self.sp.animate.next_to(self.stack[-1], RIGHT))
+            self.prev = self.stack[-1]
         else:
             anims.append(self.sp.animate.next_to(self.top_line, RIGHT))
+            self.prev = self.top_line
         return LaggedStart(*anims, **kwargs)
+    
+    def fade_out(self, **kwargs):
+        anims = []
+        for elems in self:
+            anims.append(FadeOut(elems))
+        return AnimationGroup(*anims, **kwargs)
+    
+    def fade_in(self, **kwargs):
+        anims = []
+        for elems in self:
+            anims.append(FadeIn(elems))
+        return AnimationGroup(*anims, **kwargs)
 
 
+if __name__ == "__main__":
+    class theScene(Scene):
+        def construct(self):
+            s1 = m_stack([12], scale=0.75).to_edge(UP)
+            self.play(s1.fade_in())
 
-class theSchene(Scene):
-    def construct(self):
-        s1 = m_stack([12], 0.5).to_edge(UP)
-        self.add(s1)
-        self.wait()
+            self.play(s1.push(10000))
+            self.wait()
 
-        self.play(s1.push(100))
+            self.play(s1.push(200))
+            self.wait()
 
-        self.wait()
-        self.play(s1.push(200))
+            self.play(s1.pop())
+            self.wait()
 
+            self.play(s1.fade_out())
+            self.wait()
 
-        self.wait()
-        self.play(s1.pop())
-        self.wait()
+            self.play(s1.fade_in())
+            self.wait()
 
+            self.play(s1.pop())
+            self.wait()
 
-        self.play(s1.pop())
-        self.wait()
+            self.play(s1.push(200))
+            self.wait()
 
-        self.play(s1.pop())
-        self.wait(4)
+            self.play(s1.pop())
+            self.wait()
+
+            self.play(s1.pop())
+            self.wait()
+
+            self.play(s1.push(200))
+            self.wait()
+
+            self.play(s1.pop())
+            self.wait()
+    import os
+    os.system("manim -p -ql ./m_stack.py theScene")
+    input("Press Enter to continue...")
+    os.system("rm -rf ./__pycache__")
+    os.system("rm -rf ./media")
