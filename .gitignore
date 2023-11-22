@@ -5,3 +5,9 @@
 *.svg
 *.png
 *.mp4
+
+# Ignore all __pycache__ directories
+**/__pycache__/
+
+# Ignore all media directories
+**/media/
