@@ -1,10 +1,11 @@
 from manim import *
 
 class m_table(VGroup):
-    def __init__(self, data, *args, **kwargs):
+    def __init__(self, data,scale=1, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.scale = scale
         self.data = data
-        self.table_title = Text("CPU")
+        self.table_title = Text("CPU").scale(self.scale)
         self.update_table()
     
     def set(self, register, value):
@@ -17,7 +18,7 @@ class m_table(VGroup):
 
     def update_table(self):
         self.con_table = [[s, f"0x{n:03x}"] for s, n in self.data.items()]
-        self.table = Table(self.con_table, include_outer_lines=True)
+        self.table = Table(self.con_table, include_outer_lines=True).scale(self.scale)
         self.table_title.next_to(self.table, UP)
         self.become(VGroup(self.table, self.table_title))
     
