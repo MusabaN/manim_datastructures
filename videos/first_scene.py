@@ -19,6 +19,7 @@ class FirstScene(Scene):
         self.play(
             queue.enqueue(4, run_time=2, rate_func=linear),
             stack.push(1, run_time=2, rate_func=linear),
+            table.animate_change("PC", 0x20, run_time=2, rate_func=linear),
         )
         self.wait()
 
