@@ -1,11 +1,11 @@
 from manim import *
 
 class m_table(VGroup):
-    def __init__(self, data,scale=1, *args, **kwargs):
+    def __init__(self, data, title="Table",scale=1, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.scale = scale
         self.data = data
-        self.table_title = Text("CPU").scale(self.scale)
+        self.table_title = Text(str(title)).scale(self.scale)
         self.update_table()
     
     def set(self, register, value):
