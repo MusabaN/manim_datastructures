@@ -5,7 +5,7 @@ class m_queue(VGroup):
     def __init__(self, queue=[], title="Queue", scale=1, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.scale = scale
-        self.title = Text(title)
+        self.title = Text(title).scale(self.scale)
         self.start_line = Line((0, 0, 0), (0, 1, 0)).scale(self.scale).next_to(self.title, RIGHT)
         self.queue = [self.start_line]
         self.prev = self.queue[-1]
@@ -28,14 +28,6 @@ class m_queue(VGroup):
 
     def enqueue_inner(self, value):
         new_elem = self.create_textbox(str(value), 30).next_to(self.queue[-1], RIGHT, buff=0)
-        
-        # def update_func(m):
-        #     for i in range(len(self.queue)):
-        #         if self.queue[i] == m:
-        #             m.next_to(self.queue[i-1], RIGHT, buff=0)
-        #             return   # Exit the loop.
-
-        # new_elem.add_updater(update_func)
         self.add(new_elem)
         self.queue.append(new_elem)
         self.prev = self.queue[-1]
