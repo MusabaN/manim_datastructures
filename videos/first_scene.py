@@ -5,35 +5,55 @@ from manim_datastructures import *
 
 class FirstScene(Scene):
     def construct(self):
-        queue = m_queue([1, 2, 3], scale=0.8).to_edge(DOWN + LEFT)
-        stack = m_stack([4, 5, 6], scale=0.6).to_edge(RIGHT + UP)
+        queue = m_queue(scale=0.8).to_edge(DOWN + LEFT)
+        stack = m_stack(scale=0.6).to_edge(RIGHT + UP)
         cpu = m_table(data= {
-                "PC": 0,
-                "BP": 1,
-                "SP": 2,
+                "BP": 0,
+                "SP": 0,
+                "PC": 1,
                 "EAX": 3,
             }, 
             title="CPU",
             scale=0.6).to_edge(UP)
         
         pcb = m_table(data= {
-            "PID": 0,
-            "PC": 0,
-            "BP": 1,
-            "SP": 2,
+            "PID": 47,
+            "PC": 21,
+            "BP": 0,
+            "SP": 0,
         },
         title="PCB",
         scale=0.6).to_edge(UP + LEFT)
         
-        
-        
-        self.add(queue, stack, cpu, pcb)
-
-        self.play(
-            queue.enqueue(4, run_time=2, rate_func=linear),
-            stack.push(1, run_time=2, rate_func=linear),
-            cpu.animate_change("PC", 0x20, run_time=2, rate_func=linear),
-            pcb.animate_change("PC", 0x20, run_time=2, rate_func=linear),
-        )
+        self.play(Create(cpu), run_time=0.5)
         self.wait()
+        self.play(Create(stack), run_time=0.5)
+        self.wait()
+        for key in [x for x in cpu.data.keys() if x not in ["SP", "BP"]]:
+            self.play(
+                LaggedStart(
+                cpu.highlight_cell(key, run_time=3),
+                stack.push(cpu.data[key], run_time=3),
+                Wait(),
+                Wait(),
+                Wait(),
+                Wait(),
+                Wait(),
+                Wait(),
+                Wait(),
+                cpu.animate_change("SP", cpu.data["SP"] + 1, run_time=3),
+                lag_ratio=0.25))
+            self.wait()
+        
+        # self.play(Create(pcb), run_time=10)
+        # self.wait()
 
+
+
+        # self.play(Create(queue), run_time=10)
+        # self.wait()
+
+        # self.play(
+        #     queue.enqueue(4, run_time=2, rate_func=linear),
+        # )
+        # self.wait()
