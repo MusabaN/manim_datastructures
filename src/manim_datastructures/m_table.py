@@ -68,7 +68,7 @@ class m_table(VGroup):
         self.con_table = [[s, f"0x{n:03x}"] for s, n in self.data.items()]
         self.table = Table(self.con_table, include_outer_lines=True).scale(self.scale)
         self.table_title.next_to(self.table, UP)
-        self.become(VGroup(self.table, self.table_title).move_to(self.get_center()))
+        self.become(VGroup(self.table_title, self.table).move_to(self.get_center()))
 
     def animate_change(self, register, value, **kwargs):
         """
@@ -105,6 +105,7 @@ class m_table(VGroup):
         Succession: A sequence of animations for Manim to play.
 
         """
+        self.update_table()
         anims = []
         index = list(self.data.keys()).index(register)+1
         self.table.add_highlighted_cell((index, 0), color=GREEN)
