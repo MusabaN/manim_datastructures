@@ -5,7 +5,13 @@ from manim_datastructures import *
 
 class FirstScene(Scene):
     def construct(self):
-        queue = m_queue(scale=0.8).to_edge(DOWN + LEFT)
+        scene_title = Text("Context Switch", font_size=100)
+
+        self.play(Write(scene_title))
+        self.wait(3)
+        self.play(FadeOut(scene_title))
+
+        queue = m_queue([2, 3, 4], scale=0.8).to_edge(DOWN + LEFT)
         stack = m_stack(scale=0.6).to_edge(RIGHT + UP)
         cpu = m_table(data= {
                 "BP": 0,
@@ -45,15 +51,41 @@ class FirstScene(Scene):
                 lag_ratio=0.25))
             self.wait()
         
-        # self.play(Create(pcb), run_time=10)
-        # self.wait()
+        self.play(Create(pcb), run_time=2)
+        self.wait()
+
+        for key in ["BP", "SP"]:
+            self.play(
+                LaggedStart(
+                    cpu.highlight_cell(key, run_time=3),
+                    Wait(),
+                    Wait(),
+                    Wait(),
+                    Wait(),
+                    Wait(),
+                    Wait(),
+                    Wait(),
+                    Wait(),
+                    pcb.animate_change(key, cpu.data[key], run_time=3),
+                    lag_ratio=0.25,
+                )
+            )
+            self.wait()
+
+        
 
 
 
-        # self.play(Create(queue), run_time=10)
-        # self.wait()
+        self.play(Create(queue), run_time=2)
+        self.wait()
 
-        # self.play(
-        #     queue.enqueue(4, run_time=2, rate_func=linear),
-        # )
-        # self.wait()
+        self.play(
+            queue.enqueue(1, run_time=2, rate_func=linear),
+        )
+        self.wait()
+        self.play(
+            queue.dequeue(run_time=2, rate_func=linear),
+        )
+
+        self.wait()
+
