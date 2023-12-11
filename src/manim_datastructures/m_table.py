@@ -70,7 +70,7 @@ class m_table(VGroup):
         self.table_title.next_to(self.table, UP)
         self.become(VGroup(self.table_title, self.table).move_to(self.get_center()))
 
-    def animate_change(self, register, value, **kwargs):
+    def animate_change(self, register, value, color=GREEN, **kwargs):
         """
         Creates a sequence of animations highlighting a change in the table.
 
@@ -85,7 +85,7 @@ class m_table(VGroup):
         self.update_table()
         anims = []
         index = list(self.data.keys()).index(register)+1
-        self.table.add_highlighted_cell((index, 0), color=GREEN)
+        self.table.add_highlighted_cell((index, 0), color=color)
         self.table[0].set_z_index(-1).set_opacity(0)
         anims.append(self.table[0].animate.set_opacity(1).build())
         anims.append(Wait())
@@ -94,7 +94,7 @@ class m_table(VGroup):
         anims.append(self.table[0].animate.set_opacity(0).build())
         return Succession(*anims, **kwargs)
 
-    def highlight_cell(self, register, **kwargs):
+    def highlight_cell(self, register, color=GREEN, **kwargs):
         """
         Creates a sequence of animations highlighting a specific cell in the table.
 
@@ -108,7 +108,7 @@ class m_table(VGroup):
         self.update_table()
         anims = []
         index = list(self.data.keys()).index(register)+1
-        self.table.add_highlighted_cell((index, 0), color=GREEN)
+        self.table.add_highlighted_cell((index, 0), color=color)
         self.table[0].set_z_index(-1).set_opacity(0)
         anims.append(self.table[0].animate.set_opacity(1).build())
         anims.append(Wait())
