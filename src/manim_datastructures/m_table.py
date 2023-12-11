@@ -70,7 +70,7 @@ class m_table(VGroup):
         self.table_title.next_to(self.table, UP)
         self.become(VGroup(self.table_title, self.table).move_to(self.get_center()))
 
-    def animate_change(self, register, value, color=GREEN, **kwargs):
+    def animate_change(self, register, value, color=ORANGE, **kwargs):
         """
         Creates a sequence of animations highlighting a change in the table.
 
