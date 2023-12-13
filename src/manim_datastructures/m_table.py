@@ -65,7 +65,7 @@ class m_table(VGroup):
 
     def update_table(self):
         """Updates and redraws the table with the current data."""
-        self.con_table = [[s, f"0x{n:03x}"] for s, n in self.data.items()]
+        self.con_table = [[s, f"0x{n:03}"] for s, n in self.data.items()]
         self.table = Table(self.con_table, include_outer_lines=True).scale(self.scale)
         self.table_title.next_to(self.table, UP)
         self.become(VGroup(self.table_title, self.table).move_to(self.get_center()))
