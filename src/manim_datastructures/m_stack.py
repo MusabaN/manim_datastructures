@@ -32,7 +32,7 @@ class m_stack(VGroup):
         Fades in all elements in the stack
     """
 
-    def __init__(self, table=[], scale=1, title="Stack", *args, **kwargs):
+    def __init__(self, table=[], scale=1, title="Stack", sp_dynamic=True, *args, **kwargs):
         """
         Parameters:
         table (list, optional): A list of initial values. 
@@ -46,13 +46,14 @@ class m_stack(VGroup):
         self.bp = self.create_pointers([LEFT, RIGHT], "BP")
         self.sp = self.create_pointers([RIGHT, LEFT], "SP")
         self.stack = []
+        self.val_stack = []
         self.prev = self.top_line
 
         self.add(self.title, self.top_line, self.bp, self.sp)
         for i in table:
             self.push_inner(i)
         
-        if (len(table) > 0):
+        if (len(table) > 0) and sp_dynamic:
             self.sp.next_to(self.stack[-1], RIGHT)
 
 
@@ -101,6 +102,7 @@ class m_stack(VGroup):
         Returns:
         Group: A group of textbox and text representing the new element.
         """
+        self.val_stack.append(value)
         new_elem = self.create_textbox(str(value), 30).next_to(self.prev, DOWN, buff=0)
         self.add(new_elem)
         self.stack.append(new_elem)
@@ -138,6 +140,8 @@ class m_stack(VGroup):
         """
         if len(self.stack) == 0:
             return Succession(**kwargs)
+        
+        self.val_stack.pop()
         anims = []
         anims.append(FadeOut(self.stack[-1], shift=DOWN))
         anims.append(Wait())
@@ -177,3 +181,9 @@ class m_stack(VGroup):
         for elems in self:
             anims.append(FadeIn(elems))
         return AnimationGroup(*anims, **kwargs)
+    
+    def nudge_sp(self, index, **kwargs):
+        """
+        Moves the stackpointer to the given index
+        """
+        return LaggedStart(self.sp.animate.next_to(self.stack[index - 1], RIGHT), **kwargs)
