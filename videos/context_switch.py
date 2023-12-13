@@ -2,7 +2,7 @@ from manim import *
 import setup
 from manim_datastructures import *
 
-class FirstScene(MovingCameraScene):
+class ContextSwitch(MovingCameraScene):
     def construct(self):
 
         self.camera.frame.save_state()
