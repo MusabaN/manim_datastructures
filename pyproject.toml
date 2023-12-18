@@ -1,0 +1,10 @@
+[tool.poetry]
+name = "manim_datastructures"
+version = "0.1.0"
+description = "A set of data structures for Manim"
+authors = ["Ole Jørgen Norstrand <olen_nor@hotmail.com>"]
+readme = "README.md"
+repository = "https://github.com/MusabaN/manim_datastructures"
+
+[tool.poetry.dependencies]
+requests = "^2.13.0"
