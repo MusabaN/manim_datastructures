@@ -52,7 +52,7 @@ class m_memory(VGroup):
             
             polys.add(Polygon(s1, e1, e2, s2,
                               color=color_bounds, 
-                    fill_opacity=0.2, 
+                    fill_opacity=0.2,
                     stroke_width=0))
             
         return polys
