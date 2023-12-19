@@ -11,3 +11,5 @@
 
 # Ignore all media directories
 **/media/
+
+.DS_Store
