@@ -6,7 +6,7 @@ import os
 class m_disk(m_abstract_memory):
     def __init__(self, height=5, width=2, num_cells=4):
         super().__init__(height, width, num_cells)
-        svg_path = os.path.join(os.path.dirname(__file__), "/svg/disk.svg")
+        svg_path = os.path.join(get_svg_path("disk.svg"))
         self.svg = SVGMobject(svg_path)
         self.rect.surround(self.svg, buff=2)
         self.num_cells = num_cells
