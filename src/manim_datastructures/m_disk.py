@@ -7,7 +7,8 @@ class m_disk(m_abstract_memory):
         super().__init__(height, width, num_cells)
         svg_path = get_resource_path("resources/disk.svg")
         self.svg = SVGMobject(svg_path).set_color(WHITE)
-        self.rect.surround(self.svg, buff=0)
+        self.rect.surround(self.svg, buff=0, stretch=True)
+        self.rect.set_stroke(width=0.1)
         self.num_cells = num_cells
 
         self.start = self.rect.get_corner(UL)
