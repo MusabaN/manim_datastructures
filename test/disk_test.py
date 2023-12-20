@@ -5,8 +5,7 @@ from manim_datastructures import *
 class theScene(Scene):
     def construct(self):
         disk1 = m_disk()
-        self.play(Create(disk1))
-        self.wait(3)
+        self.add(disk1)
 
         #pol = disk1.color_between(disk2, BLUE, 0, 0, 4)
 
