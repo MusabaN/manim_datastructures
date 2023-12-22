@@ -2,7 +2,6 @@
 *.dvi
 *.log
 *.tex
-*.svg
 *.png
 *.mp4
 
@@ -11,3 +10,5 @@
 
 # Ignore all media directories
 **/media/
+
+.DS_Store
