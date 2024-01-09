@@ -12,3 +12,5 @@
 **/media/
 
 .DS_Store
+
+.idea/
