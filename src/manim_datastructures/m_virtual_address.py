@@ -59,3 +59,19 @@ class m_virtual_address(VGroup):
 
     def popdown_element(self, idx):
         self[idx].move_to(self[idx].get_center()+DOWN*0.25)
+
+    def multi_popup(self, start, end):
+        for i in range(start, end):
+            self.popup_element(i)
+
+    def multi_popdown(self, start, end):
+        for i in range(start, end):
+            self.popdown_element(i)
+
+    def multi_popup_indices(self, indices):
+        for i in indices:
+            self.popup_element(i)
+
+    def multi_popdown_indices(self, indices):
+        for i in indices:
+            self.popdown_element(i)
