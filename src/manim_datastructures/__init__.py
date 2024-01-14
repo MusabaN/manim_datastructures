@@ -8,6 +8,7 @@ __all__ = ["m_stack",
            "m_virtual_address",
            "m_page_table",
            "m_angled_arrow"]
+           "m_code_block"]
 
 from .m_stack import m_stack
 from .m_table import m_table
