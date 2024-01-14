@@ -6,18 +6,30 @@ from manim_datastructures import *
 class process_creation(Scene):
 
     def construct(self):
-        example_code = Code(
-            file_name="example1.c",
-        )
+        example_code = VGroup(
+            Text("main.py"),
+            Code(
+                file_name="code_examples/example1.py",
+            )
+        ).arrange(DOWN, aligned_edge=LEFT)
+        
+
         self.play(Create(example_code))
         self.wait()
 
-        back_rec = BackgroundRectangle(example_code.code[0:6], fill_opacity=0.2, color=GREEN)
+        # this is a program
 
-        self.play(Create(back_rec))
+        # a process is a result of the execution of the program
+
+
+        self.play(example_code.animate.to_edge(UP))
+        example_execution = VGroup(
+            Text("terminal"), 
+            Code(file_name="code_examples/example1_output.txt", insert_line_no=False)
+        ).arrange(DOWN, aligned_edge=LEFT).next_to(example_code, DOWN, aligned_edge=LEFT)
+        self.play(Create(example_execution))
         self.wait()
 
-        self.play(Uncreate(back_rec))
-        self.wait()
+
 
 

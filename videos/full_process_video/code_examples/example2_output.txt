@@ -1,0 +1,11 @@
+$ make && ./main
+> Sleeping
+> I am the child process
+> I am the parent process
+
+-- or --
+
+$ make && ./main
+> I am the child process
+> Sleeping
+> I am the parent process
