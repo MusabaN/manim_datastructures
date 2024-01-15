@@ -1,5 +1,23 @@
 from manim import *
 
+class m_virtual_address_bracket(VGroup):
+    def __init__(self):
+        super().__init__()
+        self.bracket = BraceBetweenPoints(ORIGIN, RIGHT*2, UP).set_fill(WHITE, opacity=0)
+        self.add(self.bracket)
+
+    def update_bracket_points(self, start, end, direction):
+        self[0] = BraceBetweenPoints(start, end, direction).set_fill(
+            WHITE,
+            opacity=self[0].get_fill_opacity()
+        )
+
+    def show_bracket(self):
+        self[0].set_fill(WHITE, opacity=1)
+
+    def hide_bracket(self):
+        self[0].set_fill(WHITE, opacity=0)
+
 
 class m_virtual_address_element(VGroup):
     def __init__(self, num):
@@ -17,6 +35,9 @@ class m_virtual_address_element(VGroup):
     def unhighlight(self):
         self[0].set_fill(BLACK, opacity=0)
 
+    def get_top_corner(self, direction):
+        return self[0].get_critical_point(UP + direction)
+
 
 class m_virtual_address(VGroup):
     
@@ -28,7 +49,8 @@ class m_virtual_address(VGroup):
         for i in range(1, len(elems)):
             elems[i].next_to(elems[i-1], RIGHT, buff=0)
 
-        self.add(*elems)
+        self.bracket = m_virtual_address_bracket()
+        self.add(*elems, self.bracket)
 
     def highlight(self, index, color):
         self[index].highlight(color)
@@ -75,6 +97,19 @@ class m_virtual_address(VGroup):
     def multi_popdown_indices(self, indices):
         for i in indices:
             self.popdown_element(i)
+
+    def set_bracket_points(self, start, end, direction=UP):
+        self.bracket.update_bracket_points(
+            self[start].get_top_corner(LEFT),
+            self[end].get_top_corner(RIGHT),
+            direction
+        )
+
+    def show_bracket(self):
+        self[-1].show_bracket()
+
+    def hide_bracket(self):
+        self[-1].hifrom manim import *
 
     def get_coord(self, index, corner):
         return self[index].get_corner(corner)
