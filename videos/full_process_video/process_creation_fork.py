@@ -56,6 +56,7 @@ class process_creation_fork(Scene):
                 tex_environment="flushleft"
             )
         ).arrange(DOWN, aligned_edge=LEFT).scale(0.3).to_edge(RIGHT)
+        # indent the sub-list
         slide[2].shift(RIGHT * 0.5)
 
         # Shift the second list to the right to create an indentation effect
