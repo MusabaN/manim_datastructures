@@ -48,10 +48,14 @@ class process_states(Scene):
             Succession(
                 Write(kill_text),
                 running_process_text.animate.next_to(kill_text, DOWN, buff=0.3),
-                AnimationGroup(
-                    FadeOut(running_process_text),
-                    running_process_text.animate.become(Text("")),
-                ),
+            )
+        )
+        self.wait()
+
+        self.play(
+            AnimationGroup(
+                running_process_text.animate.become(Text("").next_to(kill_text, DOWN, buff=0.3)),
+                Unwrite(kill_text),
             )
         )
         self.wait()
