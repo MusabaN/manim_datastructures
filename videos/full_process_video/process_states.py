@@ -2,6 +2,8 @@ from manim import *
 import setup
 from manim_datastructures import *
 
+#Notater for denne delen finnes i notes.md under Process states
+
 class process_states(Scene):
     def construct(self):
         block_queue = m_queue(title="Blocked Queue", scale=0.7).to_edge(DL)

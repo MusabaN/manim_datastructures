@@ -3,6 +3,8 @@ import setup
 from manim_datastructures import *
 from manim.mobject.text.text_mobject import remove_invisible_chars
 
+#Kommentarer/notater for denne delen finnes i notes.md under Program execution
+
 class program_execution(Scene):
 
     def construct(self):

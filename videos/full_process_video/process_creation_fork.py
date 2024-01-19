@@ -1,5 +1,6 @@
 from manim import *
 
+#Notater for denne delen finnes i notes.md under Process creation og process creation fork 
 
 class process_creation_fork(Scene):
     def construct(self):

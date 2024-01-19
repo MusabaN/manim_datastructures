@@ -1,6 +1,6 @@
 from manim import *
 
-
+#Notater for denne delen finnes i notes.md under Process termination
 class process_termination(Scene):
     def construct(self):
         slide = VGroup(

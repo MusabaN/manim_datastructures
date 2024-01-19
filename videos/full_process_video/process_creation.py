@@ -2,6 +2,7 @@ from manim import *
 import setup
 from manim_datastructures import *
 
+#Notater for denne delen finnes i notes.md under Process creation
 
 class process_creation(Scene):
 
