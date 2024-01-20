@@ -1,6 +1,5 @@
 from manim import *
 
-#Notater for denne delen finnes i notes.md under Process creation og process creation fork 
 
 class process_creation_fork(Scene):
     def construct(self):
@@ -11,6 +10,11 @@ class process_creation_fork(Scene):
             )
         ).arrange(DOWN, aligned_edge=LEFT)\
             .scale(0.5)
+        
+        
+        """
+        Dette er et eksempel på bruk av fork()
+        """
 
         self.play(Create(example_code))
         self.wait()
@@ -63,6 +67,19 @@ class process_creation_fork(Scene):
         # Shift the second list to the right to create an indentation effect
 
         # Add both lists to the scene, one after the other
+        """
+        fork() Lager en duplikat av den kallende prosessen. Den lager kopier av det virtuelle
+        adresse rommet, åpne fildeskriptorer, og mye mer.
+
+        Begge disse prosessene kommer til å fortsette i parallell.
+
+        De returnerer:
+            Foreldreprosessen returnerer barneprosessen sin PID ved suksess eller -1 ved feil
+            
+            Mens barneprosessen returnerer 0 ved suksess, hvis ikke feilet fork og det finnes ingen
+            barneprosess
+        """
+
         self.play(Write(slide))
         
         # Keep the scene displayed for a while after everything has been written

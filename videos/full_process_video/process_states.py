@@ -2,7 +2,6 @@ from manim import *
 import setup
 from manim_datastructures import *
 
-#Notater for denne delen finnes i notes.md under Process states
 
 class process_states(Scene):
     def construct(self):
@@ -24,16 +23,38 @@ class process_states(Scene):
 
         self.add(running_process, rect, rect2, running_process_text)
 
+        """
+        Vi nevnte noe tidligere om tilstander, det skal vi se på nå
+        """
+
+
+        """
+        Først ser vi en full ready queue, det betyr at alle prosessene her er i tilstanden ready
+        Det betyr at de er klare til å kjøre så fort de har tilgang
+        """
         self.play(AnimationGroup(
             ready_queue.dequeue(),
             running_process_text.animate.become(Text("1").move_to(rect2.get_center())),
         ))
+
+        """
+        Her har prosess 1 fått tilgang til å kjøre, som nå har tilstanden running og utfører 
+        instruksjonene den har
+        """
+
         self.wait()
 
         self.play(AnimationGroup(
             block_queue.enqueue(1),
             running_process_text.animate.become(Text("").move_to(rect2.get_center())),
         ))
+
+        """
+        Nå ser vi at prosess 1 har havnet i blocked queue, da den har fått tilstanden blocked.
+        Dette betyr at den har fått tilstanden blocked, noe som kan ha skjedd hvis den for eksempel
+        venter på en input. Da venter vi på en ekstern hendelse før prosessen kan fortsette.
+        """
+
 
         self.wait()
 
@@ -43,6 +64,10 @@ class process_states(Scene):
         ))
 
         self.wait()
+
+        """
+        Prosess 2, som ble kjørende etter 1 ble blokkert, fullfører nå sine instruksjoner og termineres
+        """
 
         kill_text = Text("Process end").to_edge(UR)
 
@@ -64,7 +89,12 @@ class process_states(Scene):
 
         running_process_text.move_to(rect2.get_center())
         running_process_text.text = ""
-
+        
+        """
+        Nå blir prosess 3 kjørende, men vi ser at det eksterne som prosess 1 ventet på har kommet,
+        da velger vi å fortsette prosess 1, mens scheduler flytter prosess 3 tilbake til ready queuen 
+        """
+        
         self.play(
             AnimationGroup(
                     ready_queue.dequeue(),

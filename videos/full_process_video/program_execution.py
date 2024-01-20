@@ -3,7 +3,6 @@ import setup
 from manim_datastructures import *
 from manim.mobject.text.text_mobject import remove_invisible_chars
 
-#Kommentarer/notater for denne delen finnes i notes.md under Program execution
 
 class program_execution(Scene):
 
@@ -22,12 +21,18 @@ class program_execution(Scene):
         
         self.add(example_code)
 
-        
+        """
+        Nå skal vi se på programeksekvering
+        """
 
         # highlight line number 15
         highlight = BackgroundRectangle(macode.code[14], color=GREEN, fill_opacity=0.2)\
                         .stretch_to_fit_width(macode.width).align_to(macode, LEFT)
 
+
+        """
+        Vi kan se på linje 15 et eksempel på eksekvering av et program ved systemkallet execve
+        """
         self.play(Create(highlight))
         self.wait()
 
@@ -56,6 +61,14 @@ class program_execution(Scene):
 
         self.play(example_code.animate.to_edge(LEFT))
         self.wait()
+
+        """
+        Systemkallet execve kjører programmet som er pekt på av filename, og sender med argumentene
+        i argv og i miljøet gitt av envp
+
+        Dette returnerer ingenting ved suksess, for da bytter vi til den nye prosessen
+        ved feil returneres -1         
+        """
 
         self.play(Write(slide))
         self.wait()
