@@ -1,8 +1,18 @@
 from manim import *
+import setup
+from manim_datastructures import *
+from manim_voiceover import VoiceoverScene
+from manim_voiceover.services.azure import AzureService
 
 
-class process_creation_fork(Scene):
+class process_creation_fork(VoiceoverScene):
     def construct(self):
+        self.set_speech_service(
+            AzureService(
+                voice="nb-NO-FinnNeural",
+                style="default",
+            )
+        )
         example_code = VGroup(
             Text("main.c", color=WHITE),
             Code(

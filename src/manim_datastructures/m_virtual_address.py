@@ -109,7 +109,7 @@ class m_virtual_address(VGroup):
         self[-1].show_bracket()
 
     def hide_bracket(self):
-        self[-1].hifrom manim import *
+        self[-1].hide_bracket()
 
     def get_coord(self, index, corner):
         return self[index].get_corner(corner)

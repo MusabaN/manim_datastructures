@@ -1,12 +1,21 @@
 from manim import *
 import setup
 from manim_datastructures import *
+from manim_voiceover import VoiceoverScene
+from manim_voiceover.services.azure import AzureService
+
 
 #Notater for denne delen finnes i notes.md under Process creation
 
-class process_creation(Scene):
+class process_creation(VoiceoverScene):
 
     def construct(self):
+        self.set_speech_service(
+            AzureService(
+                voice="nb-NO-FinnNeural",
+                style="default",
+            )
+        )
         example_code = VGroup(
             Text("main.py"),
             Code(
@@ -17,27 +26,33 @@ class process_creation(Scene):
         """
         Dette er et eksempel på et program
         """
-        
-        self.play(Create(example_code))
+        text1 = utils.get_text("text_to_speech/nor/process_creation_1.txt")
+        with self.voiceover(text=text1) as tracker:
+            self.play(Create(example_code), run_time=tracker.duration)
         self.wait()
 
         """
         Eksekveringen av et program kaller vi prosess
         Ved kjøringen av et program får vi en del tilstandsinformasjon
-        Som for eksempel prosess id, pekere til minneområder, tilstand, signaler,
+        Som for eksempel prosess ID, pekere til minneområder, tilstand, signaler,
         pekere til stacken, osv
         Denne informasjonen må lagres, som også er en del av prosessen.
-
-        En prosess kan lage en annen prosess ved hjelp av for eksempel fork(),
-        som vi skal se videre på nå
+        Når programmet er skrevet, så kan vi kjøre det i terminalen, slik som i eksempelet her.
         """
 
-        self.play(example_code.animate.to_edge(UP))
+        text2 = utils.get_text("text_to_speech/nor/process_creation_2.txt")
+        with self.voiceover(text=text2) as tracker:
+            self.play(example_code.animate.to_edge(UP), run_time=(tracker.duration/4))
+
         example_execution = VGroup(
-            Text("terminal"), 
+            Text("terminal"),
             Code(file_name="code_examples/example1_output.txt", insert_line_no=False)
-        ).arrange(DOWN, aligned_edge=LEFT).next_to(example_code, DOWN, aligned_edge=LEFT)
-        self.play(Create(example_execution))
+        ).arrange(DOWN, aligned_edge=LEFT)\
+            .next_to(example_code, DOWN, aligned_edge=LEFT)
+
+        text3 = utils.get_text("text_to_speech/nor/process_creation_3.txt")
+        with self.voiceover(text=text3) as tracker:
+            self.play(Create(example_execution), run_time=(tracker.duration/2))
         self.wait()
 
 

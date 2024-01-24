@@ -20,3 +20,10 @@ def create_code(file_name):
         remove_invisible_chars(
             Code(file_name=filepath)
         )
+
+def get_text(file_name):
+    base_path = os.getcwd()
+    filepath = os.path.join(base_path, file_name)
+
+    with open(filepath, "r") as f:
+        return f.read()

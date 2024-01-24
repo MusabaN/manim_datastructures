@@ -19,4 +19,4 @@ from .m_disk import m_disk
 from .m_virtual_address import m_virtual_address
 from .m_page_table import m_page_table
 from .m_angled_arrow import m_angled_arrow
-from .utils import create_code
+from .utils import create_code, get_text
