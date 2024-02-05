@@ -110,6 +110,27 @@ class m_queue(VGroup):
         return LaggedStart(*anims, 
             group=VGroup(new_elem),
             **kwargs)
+
+    def enqueue_front(self, value, **kwargs):
+        """
+        Enqueues an element to the front of the queue with an animation.
+
+        Parameters:
+        value (str): The value to be enqueued onto the queue.
+        **kwargs: Variable length argument list to support any number of animations.
+
+        Returns:
+        AnimationGroup: A group of animations for the operation of enqueuing onto the queue.
+        """
+
+        anims = []
+        new_elem = self.create_textbox(str(value), 30).next_to(self.start_line, RIGHT, buff=0)
+        self.queue.insert(1, new_elem)
+        anims.append(FadeIn(new_elem, shift=RIGHT))
+        anims.append(Wait())
+        for i in range(2, len(self.queue)):
+            anims.append(self.queue[i].animate.next_to(self.queue[i-1], RIGHT, buff=0))
+        return AnimationGroup(*anims, **kwargs)
     
     def dequeue(self, **kwargs):
         """

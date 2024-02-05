@@ -1,0 +1,4 @@
+En prosess benytter CPU’en for å kjøre programmet. CPU’en har noen registre hvor man kan putte inn verdier. Disse registrene låner prosessen for å gjøre operasjoner raskt. Siden disse registrene lånes av alle prosesser, må hver prosess ta vare på hva den hadde i de ulike registrene når det gjøres en context switch fra en prosess til en annen.
+
+En prosess har sin egen stack, og har en basepointer for bunnen av der stacken til prosessen starter, og en stackpointer for posisjonen til toppen av stacken til prosessen. Så når en prosess byttes ut, så pusher den alle verdiene som ligger i de forskjellige registrene til CPU’en på stacken i en forhåndsbestemt rekkefølge. Når prosessen skal byttes inn igjen, så kan den da poppe disse verdiene fra stacken sin tilbake i de samme registrene.
+

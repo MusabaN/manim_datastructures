@@ -1,0 +1,1 @@
+Vi har tidligere sett at en prosess byttes ut og en annen byttes inn, nå skal vi se nærmere på hva som faktisk skjer når en prosess byttes ut og inn. Dette er kjent som context switching.

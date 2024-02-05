@@ -1,0 +1,1 @@
+Etter alt innholdet er lagret i stack og i PCB’en, så kan processen legges bakerst i ReadyQueue, og en ny prosess kan hentes opp fra ReadyQueue. Nå skal vi vise hvordan disse stegene da følgelig skjer baklengs.
