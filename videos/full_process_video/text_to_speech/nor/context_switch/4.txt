@@ -1,0 +1,1 @@
+For at en prosess skal kunne “huskes” av operativ systemet, finnes det en datastruktur som heter PCB, som er kort for process control block. Denne lagrer prosess-ID’en, basepointer, stackpointer, programcounter med mer. Her legger OS’et inn basepointer og stackpointer for den prosessen som byttes ut, slik at det kan hentes opp igjen.

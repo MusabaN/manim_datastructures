@@ -1,0 +1,1 @@
+Her puttes programcounteren på stacken, og stackpointeren økes med 1. Så puttes EAX registeret på stacken, ogs stackpointeren økes med 1.

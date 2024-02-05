@@ -1,0 +1,1 @@
+Her lagres først basepointeren i PCB'en. Deretter lagres stackpointeren på PCB'en.

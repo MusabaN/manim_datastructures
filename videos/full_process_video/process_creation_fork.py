@@ -1,8 +1,21 @@
 from manim import *
+import setup
+from manim_datastructures import *
+from manim_voiceover import VoiceoverScene
+from manim_voiceover.services.azure import AzureService
+import os
 
 
-class process_creation_fork(Scene):
+class process_creation_fork(VoiceoverScene):
     def construct(self):
+        self.set_speech_service(
+            AzureService(
+                voice="nb-NO-FinnNeural",
+                style="default",
+            )
+        )
+
+        lang = os.getenv("LANG", "nor")
         example_code = VGroup(
             Text("main.c", color=WHITE),
             Code(
@@ -12,15 +25,13 @@ class process_creation_fork(Scene):
             .scale(0.5)
         
         
-        """
-        Dette er et eksempel på bruk av fork()
-        """
+        text = utils.get_text(f"text_to_speech/{lang}/process_creation_fork_1.txt")
 
-        self.play(Create(example_code))
-        self.wait()
+        with self.voiceover(text=text) as tracker:
+            self.play(Create(example_code), runtime=tracker.duration)
 
-        self.play(example_code.animate.to_edge(UP))
-        self.wait()
+
+        self.play(example_code.animate.to_edge(UP), runtime=0.2)
 
         # the execution of the program
         example_execution = VGroup(
@@ -30,15 +41,15 @@ class process_creation_fork(Scene):
             .scale(0.5)\
             .next_to(example_code, DOWN, aligned_edge=LEFT)
 
-        self.play(Create(example_execution))
-        self.wait()
+        self.play(Create(example_execution), runtime=0.2)
 
         # animate to_edge left for both example_code and example_execution
         self.play(
             AnimationGroup(
-                example_code.animate.to_edge(LEFT),
-                example_execution.animate.to_edge(LEFT)
-            )
+                example_code.animate.to_edge(LEFT).shift(RIGHT),
+                example_execution.animate.to_edge(LEFT).shift(RIGHT)
+            ),
+            runtime=0.2,
         )
 
         self.wait()
@@ -60,7 +71,10 @@ class process_creation_fork(Scene):
                 r"hvis barn: \textbf{0} (ingen barneprosess blir opprettet dersom fork feiler)",
                 tex_environment="flushleft"
             )
-        ).arrange(DOWN, aligned_edge=LEFT).scale(0.3).to_edge(RIGHT)
+        ).arrange(DOWN, aligned_edge=LEFT)\
+            .scale(0.4)\
+            .next_to(example_code, RIGHT)\
+            .shift((RIGHT/2) + (DOWN * 1.5))
         # indent the sub-list
         slide[2].shift(RIGHT * 0.5)
 
@@ -80,8 +94,11 @@ class process_creation_fork(Scene):
             barneprosess
         """
 
-        self.play(Write(slide))
-        
+        text = utils.get_text(f"text_to_speech/{lang}/process_creation_fork_2.txt")
+
+        with self.voiceover(text=text) as tracker:
+            self.play(Write(slide), runtime=0.5)
+
         # Keep the scene displayed for a while after everything has been written
         self.wait()
 

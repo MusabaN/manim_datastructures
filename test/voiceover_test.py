@@ -7,7 +7,7 @@ class AzureExample(VoiceoverScene):
     def construct(self):
         self.set_speech_service(
             AzureService(
-                voice="nb-NO-IselinNeural",
+                voice="nb-NO-FinnNeural",
                 style="default",
             )
         )

@@ -1,0 +1,1 @@
+Her skal vi se på bruken av systemkallet execve.

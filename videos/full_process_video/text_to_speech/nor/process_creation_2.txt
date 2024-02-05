@@ -1,0 +1,1 @@
+Eksekveringen av et program kaller vi prosess. Her er en eksempelkode, som setter legger sammen to tall og printer det til terminalen. Tallene lagres i variabler ved navn, "a", "b" og "c".

@@ -1,0 +1,1 @@
+Når programmet er skrevet, så kan vi kjøre det i terminalen, slik som i eksempelet her.

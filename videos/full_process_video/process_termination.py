@@ -1,8 +1,21 @@
 from manim import *
+import setup
+from manim_datastructures import *
+from manim_voiceover import VoiceoverScene
+from manim_voiceover.services.azure import AzureService
+import os
 
 
-class process_termination(Scene):
+class process_termination(VoiceoverScene):
     def construct(self):
+        self.set_speech_service(
+            AzureService(
+                voice="nb-NO-FinnNeural",
+                style="default",
+            )
+        )
+        lang = os.environ.get("LANG", "nor")
+
         slide = VGroup(
             Text("En prosess kan avsluttes på flere forskjellige måter:"),
             BulletedList(
@@ -13,14 +26,9 @@ class process_termination(Scene):
             ),
         ).arrange(DOWN, aligned_edge=LEFT).scale(0.7)
 
-        """
-        Nå skal vi se på terminering av prosesser
-        Prosesser kan termineres på flere ulike måter
-            Hvis det ikke er flere instruksjoner å utføre i programmet, får vi ukjent statusverdi
-            Hvis en funksjon i et program avslutter med en return, får vi parameter for å returnere statusverdien
-            Systemkallet exit avslutter en prosess og returnerer statusverdien
-            Og systemkallet kill sender et signal for å avslutte en prosess.
-        
-        """
-        
-        self.add(slide)
+
+        text = utils.get_text(f"text_to_speech/{lang}/process_termination_1.txt")
+        with self.voiceover(text) as tracker:
+            self.play(Create(slide))
+
+        self.wait()

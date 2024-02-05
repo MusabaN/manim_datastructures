@@ -1,0 +1,6 @@
+Nå skal vi se på terminering av prosesser.
+Prosesser kan termineres på flere ulike måter.
+Hvis det ikke er flere instruksjoner å utføre i programmet, får vi ukjent statusverdi.
+Hvis en funksjon i et program avslutter med en return, får vi parameter for å returnere statusverdien.
+Systemkallet exit avslutter en prosess og returnerer statusverdien.
+Og systemkallet kill sender et signal for å avslutte en prosess.

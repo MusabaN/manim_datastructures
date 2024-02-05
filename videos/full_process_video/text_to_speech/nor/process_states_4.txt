@@ -1,0 +1,1 @@
+Prosess 2, som ble kjørende etter 1 ble blokkert, fullfører nå sine instruksjoner og termineres.

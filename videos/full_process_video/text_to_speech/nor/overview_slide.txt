@@ -1,0 +1,1 @@
+God dag og velkommen til dagens forelesning. Idag skal vi gå gjennom prosesser, hvordan de lages, hvordan en prosess kan starte en annen, hvordan de kjører, hvordan de venter, hvordan de termineres, hvilke tilstander en prosess kan være i og hvordan man bytter fra en prosess til en annen, også kjent som context switching
