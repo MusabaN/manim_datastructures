@@ -1,0 +1,1 @@
+Her har prosess 1 fått tilgang til å kjøre, som nå har tilstanden running og utfører instruksjonene den har.

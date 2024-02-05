@@ -45,7 +45,7 @@ class process_creation(VoiceoverScene):
         Når programmet er skrevet, så kan vi kjøre det i terminalen, slik som i eksempelet her.
         """
 
-        text2 = utils.get_text(f"text_to_speech/{nor}/process_creation_2.txt")
+        text2 = utils.get_text(f"text_to_speech/{lang}/process_creation_2.txt")
         with self.voiceover(text=text2) as tracker:
             self.play(example_code.animate.to_edge(UP), run_time=(tracker.duration/4))
 

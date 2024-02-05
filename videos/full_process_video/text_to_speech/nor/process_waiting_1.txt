@@ -1,0 +1,6 @@
+For å få en prosess til å vente kan vi bruke systemkallet wait
+Wait gjør at kallende prosess vil vente til hvilken som helst av barneprosessene terminerer, om de eksisterer
+
+Wait returnerer
+prosess id til den terminerte barneprosessen og lagrer statusen til prosessen i statusvariabelen
+-1 hvis ingen barneprosesser finnes

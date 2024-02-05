@@ -1,0 +1,2 @@
+Nå ser vi at prosess 1 har havnet i blocked queue, da den har fått tilstanden blocked.
+Dette betyr at den har fått tilstanden blocked, noe som kan ha skjedd hvis den for eksempel venter på en input. Da venter vi på en ekstern hendelse før prosessen kan fortsette.
