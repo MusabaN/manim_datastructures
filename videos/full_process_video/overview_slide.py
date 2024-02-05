@@ -4,6 +4,8 @@ from manim_datastructures import *
 from manim_voiceover import VoiceoverScene
 from manim_voiceover.services.azure import AzureService
 
+import os
+
 
 class overview_slide(VoiceoverScene):
 
@@ -16,7 +18,10 @@ class overview_slide(VoiceoverScene):
             )
         )
 
-        intro_text = utils.get_text("text_to_speech/nor/overview_slide.txt")
+        # get the environment variable called LANG
+        lang = os.environ.get("LANG", "nor")
+
+        intro_text = utils.get_text(f"text_to_speech/{lang}/overview_slide.txt")
 
         pointlist = BulletedList(
             "Process",
