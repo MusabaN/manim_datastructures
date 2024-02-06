@@ -3,6 +3,8 @@ import setup
 from manim_datastructures import *
 from manim_voiceover import VoiceoverScene
 from manim_voiceover.services.azure import AzureService
+from manim_voiceover.services.recorder import RecorderService
+
 import os
 
 
@@ -11,12 +13,13 @@ import os
 class process_creation(VoiceoverScene):
 
     def construct(self):
-        self.set_speech_service(
-            AzureService(
-                voice="nb-NO-FinnNeural",
-                style="default",
-            )
-        )
+        # self.set_speech_service(
+        #     AzureService(
+        #         voice="nb-NO-FinnNeural",
+        #         style="default",
+        #     )
+        # )
+        self.set_speech_service(RecorderService())
 
         # get the environment variable called LANG
         lang = os.environ.get("LANG", "nor")
