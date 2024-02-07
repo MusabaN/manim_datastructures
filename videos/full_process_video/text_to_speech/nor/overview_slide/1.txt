@@ -1,0 +1,1 @@
+Idag skal det handle om prosesser, hvordan de lages, hvordan en prosess kan starte en annen, prosesser som venter, termineres, hvilke forskjellige states en prosess kan være i og hva som skjer når man bytter fra en prosess til en annen.
