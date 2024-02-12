@@ -29,7 +29,7 @@ class process_termination(VoiceoverScene):
         ).arrange(DOWN, aligned_edge=LEFT).scale(0.7)
 
 
-        text = utils.get_text(f"text_to_speech/{lang}/process_termination_1.txt")
+        text = utils.get_text(f"text_to_speech/{lang}/process_termination/1.txt")
         with self.voiceover(text) as tracker:
             self.play(Create(slide))
 

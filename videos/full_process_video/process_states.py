@@ -41,7 +41,7 @@ class process_states(VoiceoverScene):
         Først ser vi en full ready queue, det betyr at alle prosessene her er i tilstanden ready
         Det betyr at de er klare til å kjøre så fort de har tilgang
         """
-        text = utils.get_text(f"text_to_speech/{lang}/process_states_1.txt")
+        text = utils.get_text(f"text_to_speech/{lang}/process_states/1.txt")
         with self.voiceover(text=text) as tracker:
             self.wait(tracker.duration)
 
@@ -55,7 +55,7 @@ class process_states(VoiceoverScene):
         instruksjonene den har
         """
 
-        text = utils.get_text(f"text_to_speech/{lang}/process_states_2.txt")
+        text = utils.get_text(f"text_to_speech/{lang}/process_states/2.txt")
         with self.voiceover(text=text) as tracker:
             self.wait(tracker.duration)
 
@@ -71,7 +71,7 @@ class process_states(VoiceoverScene):
         venter på en input. Da venter vi på en ekstern hendelse før prosessen kan fortsette.
         """
 
-        text = utils.get_text(f"text_to_speech/{lang}/process_states_3.txt")
+        text = utils.get_text(f"text_to_speech/{lang}/process_states/3.txt")
         with self.voiceover(text=text) as tracker:
             self.wait(tracker.duration)
 
@@ -87,7 +87,7 @@ class process_states(VoiceoverScene):
 
         kill_text = Text("Process end").to_edge(UR)
 
-        text = utils.get_text(f"text_to_speech/{lang}/process_states_4.txt")
+        text = utils.get_text(f"text_to_speech/{lang}/process_states/4.txt")
         with self.voiceover(text=text) as tracker:
             self.play(
                 Write(kill_text),
@@ -125,7 +125,7 @@ class process_states(VoiceoverScene):
         queue og prosess 1 byttes inn.
         """
 
-        text = utils.get_text(f"text_to_speech/{lang}/process_states_5.txt")
+        text = utils.get_text(f"text_to_speech/{lang}/process_states/5.txt")
         with self.voiceover(text=text) as tracker:
             self.play(
                     AnimationGroup(

@@ -36,7 +36,7 @@ class process_waiting(VoiceoverScene):
         slide[1].shift(RIGHT*0.5)
 
 
-        text = utils.get_text(f"text_to_speech/{lang}/process_waiting_1.txt")
+        text = utils.get_text(f"text_to_speech/{lang}/process_waiting/1.txt")
         with self.voiceover(text) as tracker:
             self.play(Create(slide))
         self.wait()

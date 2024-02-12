@@ -1,1 +1,0 @@
-På linje 15 kan vi se at barneprosessen kaller på systemkallet execve, og dermed starter eksekveringen av et annet program.

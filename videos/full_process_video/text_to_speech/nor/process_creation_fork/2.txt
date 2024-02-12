@@ -8,4 +8,4 @@ Og ved feil returneres bare -1, og ingen barneprosess blir opprettet.
 
 I dette programmet sjekker man da først om fork() returnerer -1, også håndteres den feilen ved å printe ut "Error in fork" for så å avslutte programmet ved å bruke systemkallet exit.
 
-Dersom det gikk bra, så printer barneprosessen ut "I am the child process". Foreldre prosessen printer ut "Sleeping", deretter venter den et halvt sekund også printer den ut "I am the parent process".
+Dersom det gikk bra, så printer barneprosessen ut "I am the child process". Foreldre prosessen printer ut "Sleeping", deretter venter den ett sekund også printer den ut "I am the parent process".
