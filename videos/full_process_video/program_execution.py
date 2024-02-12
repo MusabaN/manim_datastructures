@@ -32,18 +32,18 @@ class program_execution(VoiceoverScene):
 
         lang = os.getenv("LANG", "nor")
 
-        text = utils.get_text(f"text_to_speech/{lang}/program_execution_1.txt")
+        text = utils.get_text(f"text_to_speech/{lang}/program_execution/1.txt")
 
         with self.voiceover(text) as tracker:
             self.play(Create(example_code))
 
 
         # highlight line number 15
-        highlight = BackgroundRectangle(macode.code[14], color=GREEN, fill_opacity=0.2)\
+        highlight = BackgroundRectangle(macode.code[16], color=GREEN, fill_opacity=0.2)\
                         .stretch_to_fit_width(macode.width).align_to(macode, LEFT)
 
 
-        text = utils.get_text(f"text_to_speech/{lang}/program_execution_2.txt")
+        text = utils.get_text(f"text_to_speech/{lang}/program_execution/2.txt")
         with self.voiceover(text) as tracker:
             self.play(
                 Succession(
@@ -81,7 +81,7 @@ class program_execution(VoiceoverScene):
         slide[1].shift(RIGHT * 0.5)
 
 
-        text = utils.get_text(f"text_to_speech/{lang}/program_execution_3.txt")
+        text = utils.get_text(f"text_to_speech/{lang}/program_execution/3.txt")
         with self.voiceover(text) as tracker:
             self.play(Write(slide))
 

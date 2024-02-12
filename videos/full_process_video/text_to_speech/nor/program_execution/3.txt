@@ -1,5 +1,3 @@
-For å eksekvere et program i kode kan man blant annet bruke systemkallet execve
-
 Systemkallet execve kjører programmet som er pekt på av filename, og sender med argumentene
 i argv og i miljøet gitt av envp
 

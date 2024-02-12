@@ -27,7 +27,7 @@ class process_creation_fork(VoiceoverScene):
             .scale(0.5)
         
         
-        text = utils.get_text(f"text_to_speech/{lang}/process_creation_fork_1.txt")
+        text = utils.get_text(f"text_to_speech/{lang}/process_creation_fork/1.txt")
 
         with self.voiceover(text=text) as tracker:
             self.play(Create(example_code), runtime=tracker.duration)
@@ -96,7 +96,7 @@ class process_creation_fork(VoiceoverScene):
             barneprosess
         """
 
-        text = utils.get_text(f"text_to_speech/{lang}/process_creation_fork_2.txt")
+        text = utils.get_text(f"text_to_speech/{lang}/process_creation_fork/2.txt")
 
         with self.voiceover(text=text) as tracker:
             self.play(Write(slide), runtime=0.5)
