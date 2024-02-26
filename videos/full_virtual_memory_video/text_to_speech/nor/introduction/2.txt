@@ -1,0 +1,12 @@
+Her kan vi se CPU'en illustrert, denne har i realiteten 
+mange fler registre enn vi viser her. 
+<bookmark mark='A'/> I blandt registrene er 
+det et register som heter CR3. 
+
+Dette registeret brukes når man skal slå opp virtuelle 
+minneaddresser, da det viser til det øverste pagetablet, 
+eller pagedirectory som det heter. Så når man gjør en 
+context switch fra en prosess til en annen, er dette også 
+en av verdiene som lastes inn i registeret til CPU'en. 
+<bookmark mark='B'/> Så her ser vi at vi laster inn verdien 
+fra PDIR i PCB'en til CR3 registeret på CPU'en.

@@ -67,7 +67,7 @@ class m_table(VGroup):
         """Updates and redraws the table with the current data."""
         self.con_table = [[s, f"0x{n:03}"] for s, n in self.data.items()]
         self.table = Table(self.con_table, include_outer_lines=True).scale(self.scale)
-        self.table_title.next_to(self.table, UP)
+        self.table_title.scale(self.scale).next_to(self.table, UP)
         self.become(VGroup(self.table_title, self.table).move_to(self.get_center()))
 
     def animate_change(self, register, value, color=ORANGE, **kwargs):
@@ -116,3 +116,7 @@ class m_table(VGroup):
         anims.append(Wait())
         anims.append(self.table[0].animate.set_opacity(0).build())
         return Succession(*anims, **kwargs)
+
+    def rescale(self, factor):
+        self.scale = factor
+        self.update_table()

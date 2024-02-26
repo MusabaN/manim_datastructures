@@ -1,0 +1,14 @@
+Here we can see the CPU illustrated, it actually has many 
+more registers than we show here.
+
+<bookmark mark='A'/> Among the registers, there is a register 
+called CR3.
+
+This register is used when looking up virtual memory addresses, 
+as it points to the top-level page table, or pagedirectory as 
+it is called. So when doing a context switch from one process 
+to another, this is also one of the values that is loaded into 
+the CPU's register.
+
+<bookmark mark='B'/> So here we see that we load the value 
+from PDIR in the PCB to the CR3 register on the CPU.
