@@ -8,6 +8,7 @@ __all__ = ["m_stack",
            "m_virtual_address",
            "m_page_table",
            "m_angled_arrow",
+           "m_orthogonal_line",
            "utils",]
 
 from .m_stack import m_stack
@@ -19,4 +20,5 @@ from .m_disk import m_disk
 from .m_virtual_address import m_virtual_address
 from .m_page_table import m_page_table
 from .m_angled_arrow import m_angled_arrow
+from .m_orthogonal_line import m_orthogonal_line
 from .utils import create_code, get_text

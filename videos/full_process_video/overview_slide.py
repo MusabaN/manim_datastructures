@@ -11,13 +11,13 @@ class overview_slide(VoiceoverScene):
 
     def construct(self):
 
-        # self.set_speech_service(
-        #     AzureService(
-        #         voice="nb-NO-FinnNeural",
-        #         style="default",
-        #     )
-        # )
-        self.set_speech_service(RecorderService())
+        self.set_speech_service(
+            AzureService(
+                voice="nb-NO-FinnNeural",
+                style="default",
+            )
+        )
+        # self.set_speech_service(RecorderService())
 
 
         # get the environment variable called LANG

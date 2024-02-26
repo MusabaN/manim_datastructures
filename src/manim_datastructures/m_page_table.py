@@ -36,13 +36,5 @@ class m_page_table(VGroup):
     def get_coord(self, index, dir=None):
         rect = self.items[index]
 
-        if dir is not None:
-            dot_prod_l = np.dot(dir,LEFT)
-            dot_prod_r = np.dot(dir,RIGHT)
-            tolerance = 1e-10
-            if np.isclose(dot_prod_l,1,atol=tolerance):
-                return rect.get_left() + 0.5 * rect.get_height() * LEFT
-            elif np.isclose(dot_prod_r,1,atol=tolerance):
-                return rect.get_right() + 0.5 * rect.get_height() * RIGHT
-        else:
+        if dir is None:
             return rect.get_center()

@@ -24,6 +24,9 @@ class m_virtual_address_element(VGroup):
         super().__init__()
         self.num = num
 
+        self.popped = False
+        self.popped_amount = 0
+
         self.square = Square(1)
         self.integer = Integer(num).move_to(self.square.get_center())
 
@@ -78,9 +81,13 @@ class m_virtual_address(VGroup):
 
     def popup_element(self, idx):
         self[idx].move_to(self[idx].get_center()+UP*0.25)
+        self[idx].popped = True
+        self[idx].popped_amount = UP*0.25
 
     def popdown_element(self, idx):
         self[idx].move_to(self[idx].get_center()+DOWN*0.25)
+        self[idx].popped = False
+        self[idx].popped_amount = 0
 
     def multi_popup(self, start, end):
         for i in range(start, end):
@@ -112,4 +119,6 @@ class m_virtual_address(VGroup):
         self[-1].hide_bracket()
 
     def get_coord(self, index, corner):
-        return self[index].get_corner(corner)
+        return \
+            self[index].get_corner(corner) + \
+            self[index].popped_amount

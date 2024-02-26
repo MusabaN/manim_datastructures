@@ -1,0 +1,8 @@
+Som vi har sett tidligere, inneholder PCB'en verdier som er knyttet 
+til hver prosess. Deriblant holder PCB'en en verdi som spesifiserer 
+top-level-directory for den øverste pagetablen.
+
+<bookmark mark='A'/> Her har jeg for enkelhetsskyld valgt å kalle denne verdien for PDIR.
+I realiteten peker PCB på en annen datastruktur som inneholder informasjon 
+om minne til prosessen, hvor du inni den igjen kan finne denne verdien, men 
+det er utenfor skopet til dette kurset.

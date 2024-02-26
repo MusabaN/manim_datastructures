@@ -4,28 +4,30 @@ from abc import ABC
 
 
 class m_abstract_memory(VGroup, ABC):
-    def __init__(self, height=5, width=2, num_cells = 4):
+    def __init__(self, height=5, width=2, num_cells=4):
         super().__init__()
 
         self.rect = Rectangle(height=height, width=width)
         self.num_cells = num_cells
 
-        self.start = self.rect.get_corner(UL)
-        self.end = self.rect.get_corner(DL)
+        self.add(self.rect)
+        self.update_distances()
 
+
+    def update_distances(self):
+        self.start = self[0].get_corner(UL)
+        self.end = self[0].get_corner(DL)
         self.between = (self.end - self.start) / self.num_cells
 
-        self.add(self.rect)
-        
-        
-    
     def get_cell_position(self, cell_num, pos):
+        self.update_distances()
         if np.array_equal(pos, LEFT):
-            return (self.rect.get_corner(UL) + (self.between * cell_num))
+            return self[0].get_corner(UL) + (self.between * cell_num)
         else:
-            return (self.rect.get_corner(UR) + (self.between * cell_num))
+            return self[0].get_corner(UR) + (self.between * cell_num)
     
     def color_between(self, other_memory: 'm_abstract_memory', color: 'manim_colors', start_1, start_2, distance, direction=RIGHT):
+        self.update_distances()
         dir1, dir2 = LEFT, RIGHT
         if np.array_equal(direction, RIGHT):
             dir1, dir2 = RIGHT, LEFT

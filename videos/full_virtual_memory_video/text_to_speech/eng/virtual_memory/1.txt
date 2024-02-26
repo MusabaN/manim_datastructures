@@ -1,0 +1,5 @@
+Here I have put a box with CR3 inside it, which is to 
+represent how we are <bookmark mark='A'/> accessing the top table directory for 
+the current running process. As mentioned previously, this 
+is available in the CPU's register, and loaded from the process' 
+PCB.

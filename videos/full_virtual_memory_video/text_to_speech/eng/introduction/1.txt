@@ -1,0 +1,11 @@
+As we have seen earlier, the PCB contains values that are 
+associated with each process. Among other things, the PCB 
+holds a value that specifies the top-level directory for 
+the top-level page table.
+
+<bookmark mark='A'/> For simplicity, I have chosen to call 
+this value PDIR.
+In reality, the PCB points to another data structure that 
+contains information about the process's memory, where you 
+can again find this value, but that is beyond the scope of 
+this course.
