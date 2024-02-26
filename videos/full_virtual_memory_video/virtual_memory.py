@@ -18,7 +18,7 @@ class VirtualMemory(VoiceoverScene, MovingCameraScene):
         # )
         self.set_speech_service(GTTSService(lang="en", tld="com", transcription_model='base'))
 
-        lang = os.environ.get("LANG", "nor")
+        lang = os.environ.get("LANG", "eng")
 
         cr3_text = Text("CR3")
         cr3_box = Square().surround(cr3_text, buff=0.5)
