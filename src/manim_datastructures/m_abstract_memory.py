@@ -25,6 +25,10 @@ class m_abstract_memory(VGroup, ABC):
             return self[0].get_corner(UL) + (self.between * cell_num)
         else:
             return self[0].get_corner(UR) + (self.between * cell_num)
+
+    def get_cell_position_center(self, cell_num, pos):
+        self.update_distances()
+        return self.get_cell_position(cell_num, pos) + self.between / 2
     
     def color_between(self, other_memory: 'm_abstract_memory', color: 'manim_colors', start_1, start_2, distance, direction=RIGHT):
         self.update_distances()

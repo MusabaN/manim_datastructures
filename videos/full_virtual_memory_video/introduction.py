@@ -4,17 +4,19 @@ from manim_datastructures import *
 from manim_voiceover import VoiceoverScene
 from manim_voiceover.services.azure import AzureService
 from manim_voiceover.services.recorder import RecorderService
+from manim_voiceover.services.gtts import GTTSService
 import os
 
 
 class Introduction(VoiceoverScene, MovingCameraScene):
     def construct(self):
-        self.set_speech_service(
-            AzureService(
-                voice="en-US-DavisNeural",
-                style="friendly",
-            )
-        )
+        # self.set_speech_service(
+        #     AzureService(
+        #         voice="en-US-DavisNeural",
+        #         style="friendly",
+        #     )
+        # )
+        self.set_speech_service(GTTSService(lang="en", tld="com", transcription_model='base'))
 
         # pcb loads into cr3 register on cpu
         pcb = m_table(
