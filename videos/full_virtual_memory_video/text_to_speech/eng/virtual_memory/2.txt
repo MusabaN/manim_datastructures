@@ -1,0 +1,1 @@
+Here we can see a representation of a virtual address. In this virtual address, we have 10 bits to represent the virtual address. Which means we can address <bookmark mark='A'/> 2 to the power of 10 different addresses. This computes to 1024 different addresses you can reach with 10 bits to represent each address.

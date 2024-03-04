@@ -1,0 +1,1 @@
+We can now see the second level pagetable coming into view, and the arrow being drawn from the 6th entry of the top level directory being drawn to the top of the second level pagetable, as that is the value that gives us the address of the second level pagetable.
