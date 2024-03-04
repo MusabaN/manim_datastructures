@@ -1,0 +1,4 @@
+Nå som vi har funnet second level pagetable, kan vi fortsette med å finne hvilken oppføring i denne
+vi skal gå videre med. De neste <bookmark mark='POPUP_SECOND'/> tre bitene i den virtuelle adressen
+er 011, som representerer desimaltallet 3. Derfor skal vi bruke en offset på tre <bookmark
+mark='BRACE_AND_ARROW'/> og dermed hente den fjerde oppføringen i second level pagetable.

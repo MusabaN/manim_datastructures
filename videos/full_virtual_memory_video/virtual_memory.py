@@ -16,7 +16,7 @@ class VirtualMemory(VoiceoverScene, MovingCameraScene):
         #         style="friendly",
         #     )
         # )
-        self.set_speech_service(GTTSService(lang="en", tld="com", transcription_model='base'))
+        self.set_speech_service(RecorderService())
 
         lang = os.environ.get("LANG", "eng")
 
@@ -195,7 +195,7 @@ class VirtualMemory(VoiceoverScene, MovingCameraScene):
 
         # make another address and present bit and group it
         second_dir_address = MathTex(
-            '1010011',
+            '0100101',
         )
         second_dir_addres_present = MathTex(
             '0',

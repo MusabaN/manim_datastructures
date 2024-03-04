@@ -1,0 +1,4 @@
+Først ser vi hvor <bookmark mark='POPUP_FIRST'/> de tre første bitene leder oss. De tre første
+bitene representerer <bookmark mark='SHOW_BINARY_CONVERSION'/> binærtallet 101, som i
+desimaltallsystemet tilsvarer 5. <bookmark mark='HIDE_BINARY_CONVERSION'/>  Dette betyr at offset er
+5, som fører oss til den sjette <bookmark mark='DRAW_ARROW'/> oppføringen i top level directory.

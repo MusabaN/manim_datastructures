@@ -1,0 +1,6 @@
+Nok en gang ser vi at "present-bit" er satt til 0, noe som betyr at den pagen vi skal ha tak i ikke
+er i minne. Prosessen vil igjen trappe til kjernen, hvilket innebærer en context switch fra den
+kjørende prosessen til kjernen. Kjernen vil deretter kjøre koden for pagefault handleren, som vil
+hente pagen som ikke er i minnet, inn i minnet. Når dette er gjort, kan vi nå se <bookmark
+mark='TURN_GREEN'/> at "present-bit" endres til en 1 og er blitt grønn og prosessen blir flyttet fra
+blocked queue til ready queue. Fargeleggingen her er kun for synlighetens skyld.

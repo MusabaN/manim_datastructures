@@ -16,7 +16,7 @@ class Introduction(VoiceoverScene, MovingCameraScene):
         #         style="friendly",
         #     )
         # )
-        self.set_speech_service(GTTSService(lang="en", tld="com", transcription_model='base'))
+        self.set_speech_service(RecorderService())
 
         # pcb loads into cr3 register on cpu
         pcb = m_table(

@@ -1,0 +1,3 @@
+Her har jeg satt en boks med CR3 inni, som skal representere hvordan vi <bookmark mark='A'/>
+aksesserer top level directory for den kjørende prosessen. Som nevnt tidligere er dette tilgjengelig
+i prosessorens register, og lastet fra prosessens PCB.

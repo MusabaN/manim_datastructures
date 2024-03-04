@@ -1,0 +1,5 @@
+Her ser vi at <bookmark mark='FADEIN_PAGE'/> pagen er funnet og <bookmark mark='DRAW_ARROW'/>pekes
+på av den fjerde oppføringen i second level pagetable. Som vi kan se, <bookmark
+mark='POPUP_LAST'/>er de siste 4 bitene i den virtuelle adressen her alle nuller, så den ønsker å få
+tilgang til den aller første delen av pagen, da offset er 0. <bookmark mark='BRACE_AND_ARROW'/>
+

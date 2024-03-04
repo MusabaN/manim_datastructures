@@ -1,0 +1,4 @@
+Her ser vi en representasjon av en virtuell adresse. I denne virtuelle adressen har vi 10 bits. Det
+betyr at vi kan adressere <bookmark mark='A'/> 2 opphøyd i 10 forskjellige adresser. Dette tilsvarer
+1024 forskjellige adresser vi kan nå med 10 bits. I et vanlig operativsystem idag er denne adressen
+på windows for eksempel 48 bits. Da kan du nå 2 opphøyd i 48 forskjellige adresser.

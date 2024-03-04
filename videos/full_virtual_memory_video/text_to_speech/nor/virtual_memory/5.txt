@@ -1,0 +1,12 @@
+Her kan vi se at den siste biten i den sjette oppføringen i top level directory er tallet 0, og for
+synlighetens skyld farget rødt. Den siste biten i adressen i en oppføring på en pagetable, i dette
+tilfellet i top level directory, kalles "present-bit". Når denne biten er satt til 1, betyr det at
+det den peker til, er i minnet. Når "present-bit" er 0, betyr det at det den peker til ikke er i
+minnet, og prosessen når en "page fault". En "page fault" fører til en trap til kjernen, slik at
+kjernen kan kjøre koden for pagefault handleren, som kan hente det som ikke er i minne, inn i
+minne. Dette betyr at det vil bli en context switch fra prosessen som fikk pagefaulten til kjernen,
+og prosessen vil bli puttet i blocked queue. Når kjernen har puttet det som ikke var i minne,
+inn i minne, så blir prosessen puttet tilbake i ready queue, og når den kjører neste gang vil det
+være tilgjengelig i minne. Nå kan vi se <bookmark mark='TURN_GREEN'/> at "present-bit" blir en 1, og
+den har blitt grønn. Så det den peker til er nå i minnet, som i dette tilfellet er second level
+pagetablen, og prosessen er nå i ready queue og klar for å kunne kjøre igjen.

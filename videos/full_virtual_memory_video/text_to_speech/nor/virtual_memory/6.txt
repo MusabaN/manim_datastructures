@@ -1,0 +1,3 @@
+Vi kan nå se second level pagetable komme til syne. Pilen trekkes fra den sjette oppføringen i top
+level directory og opp til toppen av second level pagetable, ettersom det er verdien i denne
+oppføringen som gir oss adressen til der second level pagetable starter.

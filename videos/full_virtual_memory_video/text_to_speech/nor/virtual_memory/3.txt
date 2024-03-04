@@ -1,0 +1,7 @@
+I denne representasjonen av virtuelle adresser representerer <bookmark mark='POPUP_FIRST'/> de
+første 3 bitene offset inn i toplevel directory. Selve top level directory inneholder 8 oppføringer,
+som er antall forskjellige sifre du kan lage med 3 bits. <bookmark mark='POPDOWN_FIRST'/>. <bookmark
+mark='POPUP_SECOND'/> De neste tre bitene representerer offset inn i second level page table. Denne
+pagetablen vil også inneholde 8 oppføringer.<bookmark mark='POPDOWN_SECOND'/>. <bookmark
+mark='POPUP_LAST'/> De siste 4 bitene angir offset inn på selve pagen. <bookmark
+mark='POPDOWN_LAST'/>

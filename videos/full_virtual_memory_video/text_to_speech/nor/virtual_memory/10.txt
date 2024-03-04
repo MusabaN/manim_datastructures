@@ -1,0 +1,5 @@
+Kort oppsummert er virtuelle minneadresser bare offset inn i tables og pages, og operativsystemet
+bruker "present-bit" for å vite om det prosessen skal ha tak i er i minne. Når "present-bit" er 0,
+må kjernen hente den manglende delen fra disken og blokkere prosessen midlertidig. Når det da er
+hentet inn i minne og present-bit satt til 1 blir prosessen plassert i ready queue, og da vil det
+være tilgjengelig neste gang prosessen kjører.
